@@ -55,6 +55,8 @@ NOVIEMBRE_2022: {
   },
 };
 
+
+
 $(document).ready(function () {
     // month parsing
     month_idx = "AGOSTO_2022";
@@ -158,10 +160,10 @@ $(document).ready(function () {
                 select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[select_value_idx];
             }
             if (jobTime >= 24) {
-                producto = select_value / 48;
-                basic = producto * jobTime;
-                patagonia = basic * patagonia_percentage;
-                antiguedad = basic * antiguedad * 0.01;
+                producto = Number(select_value) / 48;
+                basic = producto * Number(jobTime);
+                patagonia = basic * Number(patagonia_percentage);
+                antiguedad = basic * Number(antiguedad) * 0.01;
                 total = basic + antiguedad + patagonia;
                 basic = basic.toFixed(2);
                 patagonia = patagonia.toFixed(2);
@@ -197,9 +199,9 @@ $(document).ready(function () {
                 select_value = CONSTANTS[month_idx].POR_HORA_RETIRO[select_value_idx];
             }
             if (jobTime < 24) {
-                basic = select_value * jobTime;
-                patagonia = basic * patagonia_percentage;
-                antiguedad = basic * antiguedad * 0.01;
+                basic = select_value * Number(jobTime);
+                patagonia = basic * Number(patagonia_percentage);
+                antiguedad = basic * Number(antiguedad) * 0.01;
                 total = basic + antiguedad + patagonia;
                 basic = basic.toFixed(2);
                 patagonia = patagonia.toFixed(2);
