@@ -118,7 +118,7 @@ $(document).ready(function () {
                 select_value = CONSTANTS[month_idx].MENSUAL_CAMA_ADENTRO[select_value_idx];
             } else if (valSelectJob == "retiro_mensual") {
                 select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[select_value_idx];
-               console.log(select_value, "calculo")
+               console.log(select_value, "retiro_mesnual")
             }
             if (jobTime >= 24) {
                 producto = Number(select_value) / 48;
@@ -131,6 +131,9 @@ $(document).ready(function () {
                 antiguedad = antiguedad.toFixed(2);
                 total = total.toFixed(2);
                 divB.textContent = "-Pago basico por mes: $ ".concat(basic);
+              
+              console.log(total, "total primera parte")
+              
                 if (antiguedad > 0) {
                     divA.textContent = "-Extra antiguedad: $ ".concat(antiguedad);
                     $("#antiguedadtextDiv").show();
