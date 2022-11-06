@@ -118,6 +118,7 @@ $(document).ready(function () {
                 select_value = CONSTANTS[month_idx].MENSUAL_CAMA_ADENTRO[select_value_idx];
             } else if (valSelectJob == "retiro_mensual") {
                 select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[select_value_idx];
+               console.log(select_value, "calculo")
             }
             if (jobTime >= 24) {
                 producto = Number(select_value) / 48;
