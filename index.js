@@ -59,7 +59,6 @@ $(document).ready(function () {
     // month parsing
     month_idx = "AGOSTO_2022";
 
-    console.log("payment_method");
 
     setTimeout(function () {
         payment_method = document.getElementById("modalidad_de_pago").value;
@@ -67,7 +66,7 @@ $(document).ready(function () {
         select_value_idx = document.getElementById("cama_adentro").value;
         valSelectJob = document.getElementById("job_type").value;
         patagonia_percentage = document.getElementById("patagonia").value;
-        console.log(payment_method);
+        console.log(payment_method, month_idx,select_value_idx,valSelectJob,patagonia_percentage);
     }, 5000);
 
     $("#select_month").on("change", function () {
