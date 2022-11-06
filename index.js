@@ -62,10 +62,11 @@ $(document).ready(function () {
     month_idx = document.getElementById("select_month").value;
   });
   
-  settimeout(function(){
-    console.log("hola");
-  payment_method = document.getElementById("modalidad_de_pago").value;
-  },5000)
+  setTimeout(function () {
+        payment_method = document.getElementById("modalidad_de_pago").value;
+        console.log(payment_method);
+    console.log("holas");
+    }, 5000);
 
   $("#job_type").on("change", function () {
     valSelectJob = $(this).val();
