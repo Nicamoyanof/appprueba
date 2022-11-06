@@ -63,7 +63,6 @@ $(document).ready(function () {
     month_idx = "AGOSTO_2022";
 
 
-    setTimeout(function () {
         payment_method = document.getElementById("modalidad_de_pago").value;
         month_idx = document.getElementById("select_month").value;
         select_value_idx =  Number(document.getElementById("cama_adentro").value)-1;
@@ -167,8 +166,7 @@ $(document).ready(function () {
             }
         }
       
-    }, 2000);
-
+    
 
     $("#select_month").on("change", function () {
         month_idx = document.getElementById("select_month").value;
