@@ -70,6 +70,103 @@ $(document).ready(function () {
        valSelectJob = document.getElementById("job_type").value;
         patagonia_percentage = document.getElementById("patagonia").value;
         console.log(payment_method + "modalidad_de_pago" , month_idx + "select_month" ,select_value_idx + "cama_adentro"  ,valSelectJob + "job_tipe",patagonia_percentage + "patagonia");
+      
+      jobTime = $("#job_time").val();
+        antiguedad = $("#antiguedad").val();
+        var divB = document.getElementById("basictextDiv");
+        var divA = document.getElementById("antiguedadtextDiv");
+        var divP = document.getElementById("patagoniatextDiv");
+        var divT = document.getElementById("totaltextDiv");
+        var divE = document.getElementById("errorDiv");
+        $("#basictextDiv").hide();
+        $("#antiguedadtextDiv").hide();
+        $("#patagoniatextDiv").hide();
+        $("#totaltextDiv").hide();
+        if (payment_method === "pago_mensual") {
+            if (valSelectJob == "cama_adentro") {
+                select_value = CONSTANTS[month_idx].MENSUAL_CAMA_ADENTRO[Number(select_value_idx)];
+            } else if (valSelectJob == "retiro_mensual") {
+                select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[Number(select_value_idx)];
+                console.log(month_idx)
+                console.log( CONSTANTS[month_idx])
+               console.log(select_value, "retiro_mesnual")
+            }
+            if (jobTime >= 24) {
+                producto = Number(select_value) / 48;
+                basic = producto * Number(jobTime);
+                patagonia = basic * Number(patagonia_percentage);
+                antiguedad = basic * Number(antiguedad) * 0.01;
+                total = basic + antiguedad + patagonia;
+                basic = basic.toFixed(2);
+                patagonia = patagonia.toFixed(2);
+                antiguedad = antiguedad.toFixed(2);
+                total = total.toFixed(2);
+                divB.textContent = "-Pago basico por mes: $ ".concat(basic);
+              
+              console.log(total, "total primera parte")
+              
+                if (antiguedad > 0) {
+                    divA.textContent = "-Extra antiguedad: $ ".concat(antiguedad);
+                    $("#antiguedadtextDiv").show();
+                }
+                if (patagonia > 0) {
+                    divP.textContent = "-Adicional Patagonia: $ ".concat(patagonia);
+                    $("#patagoniatextDiv").show();
+                }
+                if (patagonia > 0 || antiguedad > 0) {
+                    $("#basictextDiv").show();
+                }
+                divT.textContent = total;
+                $("#totaltextDiv").show();
+                $("#errorDiv").hide();
+            } else {
+                divE.textContent = "Por menos de 24 horas semanales, corresponde pago por hora.";
+                $("#errorDiv").show();
+                $("#basictextDiv").hide();
+                $("#antiguedadtextDiv").hide();
+                $("#patagoniatextDiv").hide();
+                $("#totaltextDiv").hide();
+            }
+        } else if (payment_method === "pago_por_hora") {
+            if (valSelectJob == "cama_adentro") {
+                select_value = CONSTANTS[month_idx].POR_HORA_CAMA_ADENTRO[select_value_idx];
+            } else if (valSelectJob == "retiro_mensual") {
+                select_value = CONSTANTS[month_idx].POR_HORA_RETIRO[select_value_idx];
+            }
+            if (jobTime < 24) {
+                basic = select_value * Number(jobTime);
+                patagonia = basic * Number(patagonia_percentage);
+                antiguedad = basic * Number(antiguedad) * 0.01;
+                total = basic + antiguedad + patagonia;
+                basic = basic.toFixed(2);
+                patagonia = patagonia.toFixed(2);
+                antiguedad = antiguedad.toFixed(2);
+                total = total.toFixed(2);
+                divB.textContent = "-Pago basico por semana: $ ".concat(basic);
+                if (antiguedad > 0) {
+                    divA.textContent = "-Antiguedad: $ ".concat(antiguedad);
+                    $("#antiguedadtextDiv").show();
+                }
+                if (patagonia > 0) {
+                    divP.textContent = "-Adicional Patagonia: $ ".concat(patagonia);
+                    $("#patagoniatextDiv").show();
+                }
+                if (patagonia > 0 || antiguedad > 0) {
+                    $("#basictextDiv").show();
+                }
+                divT.textContent = "Pago total por semana: $ ".concat(total);
+                $("#totaltextDiv").show();
+                $("#errorDiv").hide();
+            } else {
+                divE.textContent = "Desde 24 horas semanales, corresponde pago mensual.";
+                $("#errorDiv").show();
+                $("#basictextDiv").hide();
+                $("#antiguedadtextDiv").hide();
+                $("#patagoniatextDiv").hide();
+                $("#totaltextDiv").hide();
+            }
+        }
+      
     }, 2000);
 
 
