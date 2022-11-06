@@ -57,6 +57,8 @@ NOVIEMBRE_2022: {
 
 
 
+
+
 $(document).ready(function () {
     // month parsing
     month_idx = "AGOSTO_2022";
@@ -66,7 +68,7 @@ $(document).ready(function () {
         payment_method = document.getElementById("modalidad_de_pago").value;
         month_idx = document.getElementById("select_month").value;
         select_value_idx = document.getElementById("cama_adentro").value;
-        valSelectJob = document.getElementById("job_type").value;
+        valSelectJob =  document.getElementById("cama_adentro").value;
         patagonia_percentage = document.getElementById("patagonia").value;
         console.log(payment_method, month_idx,select_value_idx,valSelectJob,patagonia_percentage);
     }, 5000);
@@ -79,46 +81,6 @@ $(document).ready(function () {
     $("#job_type").on("change", function () {
         valSelectJob = $(this).val();
         select_value = 0;
-        if (valSelectJob == "cama_adentro") {
-            $("#retiro_mensual").hide();
-            $("#cama_adentro").show();
-            $("#label_categories").show();
-            $("#job_time").show();
-            $("#label_job_time").show();
-            $("#button_calculate").show();
-            $("#label_modalidad_de_pago").show();
-            $("#modalidad_de_pago").show();
-            $("#label_patagonia").show();
-            $("#patagonia").show();
-            $("#label_antiguedad").show();
-            $("#antiguedad").show();
-        } else if (valSelectJob == "retiro_mensual") {
-            $("#cama_adentro").hide();
-            $("#retiro_mensual").show();
-            $("#label_categories").show();
-            $("#job_time").show();
-            $("#label_job_time").show();
-            $("#button_calculate").show();
-            $("#label_modalidad_de_pago").show();
-            $("#modalidad_de_pago").show();
-            $("#label_patagonia").show();
-            $("#patagonia").show();
-            $("#label_antiguedad").show();
-            $("#antiguedad").show();
-        } else {
-            $("#cama_adentro").hide();
-            $("#retiro_mensual").hide();
-            $("#label_categories").hide();
-            $("#job_time").hide();
-            $("#label_job_time").hide();
-            $("#button_calculate").hide();
-            $("#label_modalidad_de_pago").hide();
-            $("#modalidad_de_pago").hide();
-            $("#label_patagonia").hide();
-            $("#patagonia").hide();
-            $("#label_antiguedad").hide();
-            $("#antiguedad").hide();
-        }
     });
     $("select").on("change", function () {
         $("#job_time").val(0);
@@ -128,9 +90,6 @@ $(document).ready(function () {
         $("#patagoniatextDiv").hide();
         $("#totaltextDiv").hide();
         $("#errorDiv").hide();
-    });
-    $("#retiro_mensual").on("change", function () {
-        select_value_idx = document.getElementById("retiro_mensual").value;
     });
     $("#cama_adentro").on("change", function () {
         select_value_idx = document.getElementById("cama_adentro").value;
