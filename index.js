@@ -70,7 +70,7 @@ $(document).ready(function () {
        valSelectJob = document.getElementById("job_type").value;
         patagonia_percentage = document.getElementById("patagonia").value;
         console.log(payment_method + "modalidad_de_pago" , month_idx + "select_month" ,select_value_idx + "cama_adentro"  ,valSelectJob + "job_tipe",patagonia_percentage + "patagonia");
-    }, 5000);
+    }, 2000);
 
 
     $("#select_month").on("change", function () {
