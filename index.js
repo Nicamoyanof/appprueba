@@ -63,6 +63,7 @@ $(document).ready(function () {
   });
   
   settimeout(function(){
+    console.log("hola");
   payment_method = document.getElementById("modalidad_de_pago").value;
   },5000)
 
