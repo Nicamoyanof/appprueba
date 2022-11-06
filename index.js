@@ -146,7 +146,7 @@ $(document).ready(function () {
                 if (patagonia > 0 || antiguedad > 0) {
                     $("#basictextDiv").show();
                 }
-                divT.textContent = "Pago total por mes: $ ".concat(total);
+                divT.textContent = total;
                 $("#totaltextDiv").show();
                 $("#errorDiv").hide();
             } else {
