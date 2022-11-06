@@ -58,7 +58,6 @@ NOVIEMBRE_2022: {
 
 
 
-
 $(document).ready(function () {
     // month parsing
     month_idx = "AGOSTO_2022";
@@ -118,6 +117,8 @@ $(document).ready(function () {
                 select_value = CONSTANTS[month_idx].MENSUAL_CAMA_ADENTRO[Number(select_value_idx)];
             } else if (valSelectJob == "retiro_mensual") {
                 select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[Number(select_value_idx)];
+                console.log(month_idx)
+                console.log( CONSTANTS[month_idx])
                console.log(select_value, "retiro_mesnual")
             }
             if (jobTime >= 24) {
