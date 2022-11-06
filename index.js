@@ -115,9 +115,9 @@ $(document).ready(function () {
         $("#totaltextDiv").hide();
         if (payment_method === "pago_mensual") {
             if (valSelectJob == "cama_adentro") {
-                select_value = CONSTANTS[month_idx].MENSUAL_CAMA_ADENTRO[select_value_idx];
+                select_value = CONSTANTS[month_idx].MENSUAL_CAMA_ADENTRO[Number(select_value_idx)];
             } else if (valSelectJob == "retiro_mensual") {
-                select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[select_value_idx];
+                select_value = CONSTANTS[month_idx].MENSUAL_RETIRO[Number(select_value_idx)];
                console.log(select_value, "retiro_mesnual")
             }
             if (jobTime >= 24) {
